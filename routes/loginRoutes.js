@@ -3,18 +3,20 @@ const router = express.Router()
 // const db = require('./../db');
 // app.use(express.json());
 const Login = require('./../models/Login')
-
+const {jwtAuth,generateToken}=require('./../jwt_token')
 router.post('/', async (req, res) => {
   try {
     const data = req.body
     console.log(data)
     const login = new Login(data)
+    const token =generateToken(data.mobileNo)
     const respons = await login.save()
     res.status(200).json({
       success: true,
       mag: 'OTP send Succeefully',
       data: {
-        mobileNo: respons
+        mobileNo: respons,
+        token:token
       }
     })
   } catch (error) {

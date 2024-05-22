@@ -10,6 +10,6 @@ const loginRouter = require('./routes/loginRoutes');
 app.use('/login',loginRouter);
 
 
-app.listen('https://e-commerce-backend-5lun.onrender.com', () => {
+app.listen(3000, () => {
   console.log('listen on 3000')
 })
