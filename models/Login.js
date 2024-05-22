@@ -2,7 +2,7 @@ const mongooes = require('mongoose');
 
 const loginDetail=mongooes.Schema({
   mobileNo:{
-    type:Number,
+    type:String,
     required:true,
     
   },
